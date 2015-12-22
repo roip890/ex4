@@ -10,26 +10,26 @@
 
 
 using namespace std;
-GTEST_API_ int main(int argc, char* argv[]) {
-	printf("Running main() from main.cpp\n");
-	testing::InitGoogleTest(&argc, argv);
-	return RUN_ALL_TESTS();
+int main(int argc, char* argv[]) {
+	char* ipAddress = "127.0.0.1";
+	int portNum = 5555;
+	ClientConnection* con;
+	string type;
+	cin >> type;
+	if (type == "tcp") {
+		con = new TcpConnection(ipAddress, portNum);
+	} else {
+		con = new UdpConnection(ipAddress, portNum);
+	}
 
-
-	TcpConnection UdpCon = new TcpConnection("127.0.0.1", 5555);
-
-	UdpCon.sendToSocket("hello");
-	UdpCon.receiveFromSocket();
-	UdpCon.getBuffer();
-	UdpCon.closeSocket();
-
-	TcpConnection TcpCon = new TcpConnection("127.0.0.1", 5555);
-
-	TcpCon.sendToSocket("hello");
-	TcpCon.receiveFromSocket();
-	TcpCon.getBuffer();
-	TcpCon.closeSocket();
-
-
+	int key;
+	string command;
+	cin >> key;
+	while (key != -1) {
+	getline(cin, command);
+	con->sendToSocket((char*)(command.c_str()));
+	con->receiveFromSocket();
+	cout << con->getBuffer();
+	}
     return 0;
 }
