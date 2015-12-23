@@ -157,12 +157,12 @@ public:
 	void removeType(string typeToRemove);
 
 	/*******************************************************************************
-	 * function name : printMovie											       *
+	 * function name : toString												       *
 	 * input : nothing.														       *
-	 * output : nothing.													       *
-	 * explanation : printing all the movie details.						       *
+	 * output : the movie details as string.								       *
+	 * explanation : return all the movie details.							       *
 	 *******************************************************************************/
-	void printMovie();
+	string toString();
 
 	/*******************************************************************************
 	 * function name : operator+											       *

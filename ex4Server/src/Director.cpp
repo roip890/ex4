@@ -28,13 +28,13 @@ Director::~Director() {
 }
 
 /*******************************************************************************
-* function name : printProfessional										       *
-* input : nothing.														       *
-* output : nothing.														       *
-* explanation : the function printing the Director details as Director		   *
-*		        need to print it.										       *
-*******************************************************************************/
+ * function name : toString												       *
+ * input : nothing.														       *
+ * output : screenWriter as string.										       *
+ * explanation : the function return the Director details as director		   *
+ *		        need to print it.										       *
+ *******************************************************************************/
 
-void Director::printProfessional() {
-	cout << this->name << endl;
+string Director::toString() {
+	return this->name + "\n";
 }

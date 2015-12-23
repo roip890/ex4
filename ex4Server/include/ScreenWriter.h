@@ -14,38 +14,39 @@
 using namespace std;
 
 /*******************************************************************************
-* class name : ScreenWriter												       *
-* explanation : ScreenWriter is class that inherit from professional.		   *
-*******************************************************************************/
-class ScreenWriter:public Professional{
+ * class name : ScreenWriter											       *
+ * explanation : ScreenWriter is class that inherit from professional.		   *
+ *******************************************************************************/
+class ScreenWriter: public Professional {
 public:
 	/*******************************************************************************
-	* function name : ScreenWriter											       *
-	* input : all the ScreenWriter parameters: id, age and gender as int,	       *
-	*		  name as string.												       *
-	* output : nothing.														       *
-	* explanation : constructor of a ScreenWriter,								   *
-	* 				fill the members with the input.							   *
-	*******************************************************************************/
-	ScreenWriter(int id , int age, string specificDesc, string gender, string name);
+	 * function name : ScreenWriter											       *
+	 * input : all the ScreenWriter parameters: id, age and gender as int,	       *
+	 *		  name as string.												       *
+	 * output : nothing.													       *
+	 * explanation : constructor of a ScreenWriter,								   *
+	 * 				fill the members with the input.							   *
+	 *******************************************************************************/
+	ScreenWriter(int id, int age, string specificDesc, string gender,
+			string name);
 
 	/*******************************************************************************
-	* function name : ~ScreenWriter											       *
-	* input : nothing														       *
-	* output : nothing.														       *
-	* explanation : destructor of a ScreenWriter.								   *
-	*******************************************************************************/
+	 * function name : ~ScreenWriter										       *
+	 * input : nothing														       *
+	 * output : nothing.													       *
+	 * explanation : destructor of a ScreenWriter.								   *
+	 *******************************************************************************/
 	virtual ~ScreenWriter();
 
 	/*******************************************************************************
-	* function name : printProfessional										       *
-	* input : nothing.														       *
-	* output : nothing.														       *
-	* explanation : the function printing the ScreenWriter details as ScreenWriter *
-	*		        need to print it.										       *
-	*******************************************************************************/
+	 * function name : toString												       *
+	 * input : nothing.														       *
+	 * output : screenWriter as string.										       *
+	 * explanation : the function return the ScreenWriter details as ScreenWriter  *
+	 *		        need to print it.										       *
+	 *******************************************************************************/
 
-	void printProfessional();
+	string toString();
 };
 
 #endif /* SCREEANWRITER_H_ */

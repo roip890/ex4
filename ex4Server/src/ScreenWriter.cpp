@@ -39,13 +39,13 @@ ScreenWriter::~ScreenWriter() {
 }
 
 /*******************************************************************************
-* function name : printProfessional										       *
-* input : nothing.														       *
-* output : nothing.														       *
-* explanation : the function printing the ScreenWriter details as ScreenWriter *
-*		        need to print it.										       *
-*******************************************************************************/
+ * function name : toString												       *
+ * input : nothing.														       *
+ * output : screenWriter as string.										       *
+ * explanation : the function return the ScreenWriter details as ScreenWriter  *
+ *		        need to print it.										       *
+ *******************************************************************************/
 
-void ScreenWriter::printProfessional() {
-	cout << this->name << " " << this->specificDesc << endl;
+string ScreenWriter::toString() {
+	return this->name + " " + this->specificDesc + "\n";
 }

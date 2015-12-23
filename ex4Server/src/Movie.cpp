@@ -181,29 +181,30 @@ void Movie::removeType(string typeToRemove) {
 }
 
 /*******************************************************************************
- * function name : printMovie											       *
+ * function name : toString												       *
  * input : nothing.														       *
- * output : nothing.													       *
- * explanation : printing all the movie details.						       *
+ * output : the movie details as string.								       *
+ * explanation : return all the movie details.							       *
  *******************************************************************************/
-void Movie::printMovie() {
-	cout << this->id << " " << this->name << " " << this->length << " "
-			<< this->year << " " << this->rank;
+string Movie::toString(){
+	string movie;
+	movie = this->id + " " + this->name + " " + this->length + " "
+			+ this->year + " " + this->rank;
 	int typesSize = this->types.size();
 	if (typesSize > 0) {
-		cout << " ";
+		movie += " ";
 	}
 	for (int i = 0; i < typesSize; i++) {
 		if (i == (typesSize - 1)) {
-			cout << this->types.at(i)->getType();
+			movie += this->types.at(i)->getType();
 		} else {
-			cout << this->types.at(i)->getType() << ",";
+			movie += this->types.at(i)->getType() + ",";
 		}
 	}
-	cout << " " << this->summary << endl;
+	movie += " " + this->summary + "\n";
 	for (vector<Professional*>::iterator it = this->staff.begin();
 			it != this->staff.end(); ++it) {
-		(*it)->printProfessional();
+		movie += (*it)->toString();
 	}
 }
 

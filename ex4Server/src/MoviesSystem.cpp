@@ -180,13 +180,14 @@ int MoviesSystem::getCommand() {
 
 void MoviesSystem::setNewMovie(string id, string name, int length, int year,
 		float rank, string summary) {
+	string result = "";
 	if ((this->findMovie(id) == NULL)
 			&& (this->isMovieInputValid(length, year, rank))) {
 		Movie* movieToAdd = new Movie(id, name, length, year, rank, summary);
 		this->movies.push_back(movieToAdd);
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -200,6 +201,7 @@ void MoviesSystem::setNewMovie(string id, string name, int length, int year,
 
 void MoviesSystem::setNewProfessional(int professionalType, int id, int age,
 		string specificDesc, string gender, string name) {
+	string result = "";
 	Professional* professionalToAdd;
 	if ((this->findProfessional(id) == NULL)
 			&& (this->isProfessionalInputValid(professionalType, id, age,
@@ -232,9 +234,9 @@ void MoviesSystem::setNewProfessional(int professionalType, int id, int age,
 			break;
 		}
 		this->professionals.push_back(professionalToAdd);
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -248,14 +250,15 @@ void MoviesSystem::setNewProfessional(int professionalType, int id, int age,
 
 void MoviesSystem::addProfessionalToMovie(int professionalToAddId,
 		string movieId) {
+	string result = "";
 	Movie* movie = this->findMovie(movieId);
 	Professional* professional = this->findProfessional(professionalToAddId);
 	if ((movie != NULL) && (professional != NULL)) {
 		movie->addProfessional(professional);
 		professional->addMovie(movie);
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -267,6 +270,7 @@ void MoviesSystem::addProfessionalToMovie(int professionalToAddId,
  *******************************************************************************/
 
 void MoviesSystem::addTypeToMovie(string movieId, string typeToAddStr) {
+	string result = "";
 	Movie* movie = this->findMovie(movieId);
 	Type* type = this->findType(typeToAddStr);
 	if (movie != NULL) {
@@ -275,9 +279,9 @@ void MoviesSystem::addTypeToMovie(string movieId, string typeToAddStr) {
 			this->types.push_back(type);
 		}
 		movie->addType(type);
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -289,12 +293,13 @@ void MoviesSystem::addTypeToMovie(string movieId, string typeToAddStr) {
  *******************************************************************************/
 
 void MoviesSystem::setSortingTypeMovie(string movieId, int sortingTypeToAdd) {
+	string result = "";
 	if (this->isSortingTypeValid(sortingTypeToAdd)) {
 		Movie* movie = this->findMovie(movieId);
 		movie->setSortingType(sortingTypeToAdd);
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -307,14 +312,15 @@ void MoviesSystem::setSortingTypeMovie(string movieId, int sortingTypeToAdd) {
  *******************************************************************************/
 
 void MoviesSystem::printAllProfessionalsOfMovie(string movieId) {
+	string result = "";
 	Movie* movie = this->findMovie(movieId);
 	if (movie != NULL) {
 		for (vector<Professional*>::iterator it = movie->getStaff().begin();
 				it != movie->getStaff().end(); ++it) {
-			(*it)->printProfessional();
+			result += (*it)->toString();
 		}
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -327,11 +333,12 @@ void MoviesSystem::printAllProfessionalsOfMovie(string movieId) {
  *******************************************************************************/
 
 void MoviesSystem::printAllMovieDetails(string movieId) {
+	string result = "";
 	Movie* movie = this->findMovie(movieId);
 	if (movie != NULL) {
-		movie->printMovie();
+		result += movie->toString();
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -344,6 +351,7 @@ void MoviesSystem::printAllMovieDetails(string movieId) {
  *******************************************************************************/
 
 void MoviesSystem::mergeMovies(vector<string> moviesId) {
+	string result = "";
 	for (vector<string>::iterator it = moviesId.begin(); it != moviesId.end();
 			) {
 		if (this->findMovie((*it)) == NULL) {
@@ -376,13 +384,13 @@ void MoviesSystem::mergeMovies(vector<string> moviesId) {
 		if ((newMovie != NULL)
 				&& (this->findMovie((*newMovie).getId()) == NULL)) {
 			this->movies.push_back(newMovie);
-			cout << "Success" << endl;
+			result += "Success\n";
 		} else {
 			//delete newMovie;
-			cout << "Failure" << endl;
+			result += "Failure\n";
 		}
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -396,14 +404,15 @@ void MoviesSystem::mergeMovies(vector<string> moviesId) {
  *******************************************************************************/
 
 void MoviesSystem::printAllMoviesOfProfessional(int professionalId) {
+	string result = "";
 	Professional* professional = this->findProfessional(professionalId);
 	if (professional != NULL) {
 		for (vector<Movie*>::iterator it = professional->getMovies().begin();
 				it != professional->getMovies().end(); ++it) {
-			(*it)->printMovie();
+			result += (*it)->toString();
 		}
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -417,14 +426,15 @@ void MoviesSystem::printAllMoviesOfProfessional(int professionalId) {
  *******************************************************************************/
 
 void MoviesSystem::printAllMoviesOfType(string typeStr) {
+	string result = "";
 	Type* type = this->findType(typeStr);
 	if (type != NULL) {
 		for (vector<Movie*>::iterator it = type->getMovies().begin();
 				it != type->getMovies().end(); ++it) {
-			(*it)->printMovie();
+			result += (*it)->toString();
 		}
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -437,6 +447,7 @@ void MoviesSystem::printAllMoviesOfType(string typeStr) {
  *******************************************************************************/
 
 void MoviesSystem::deleteType(string typeStr) {
+	string result = "";
 	if (this->findType(typeStr) != NULL) {
 		for (vector<Type*>::iterator it = this->types.begin();
 				it != this->types.end();) {
@@ -450,9 +461,9 @@ void MoviesSystem::deleteType(string typeStr) {
 				++it;
 			}
 		}
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -465,6 +476,7 @@ void MoviesSystem::deleteType(string typeStr) {
  *******************************************************************************/
 
 void MoviesSystem::deleteMovie(string movieId) {
+	string result = "";
 	if (this->findMovie(movieId) != NULL) {
 		for (vector<Movie*>::iterator it = this->movies.begin();
 				it != this->movies.end();) {
@@ -483,9 +495,9 @@ void MoviesSystem::deleteMovie(string movieId) {
 				++it;
 			}
 		}
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -499,6 +511,7 @@ void MoviesSystem::deleteMovie(string movieId) {
  *******************************************************************************/
 
 void MoviesSystem::deleteProfessional(int professionalId) {
+	string result = "";
 	if (this->findProfessional(professionalId) != NULL) {
 		for (vector<Professional*>::iterator it = this->professionals.begin();
 				it != this->professionals.end();) {
@@ -517,9 +530,9 @@ void MoviesSystem::deleteProfessional(int professionalId) {
 				++it;
 			}
 		}
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -534,15 +547,16 @@ void MoviesSystem::deleteProfessional(int professionalId) {
 
 void MoviesSystem::removeProfessionalFromMovie(int professionalId,
 		string movieId) {
+	string result = "";
 	Movie* movie = this->findMovie(movieId);
 	Professional* professional = this->findProfessional(professionalId);
 	if ((movie != NULL) && (professional != NULL)
 			&& (movie->findProfessional(professionalId) != NULL)) {
 		movie->removeProfessional(professionalId);
 		professional->removeMovie(movieId);
-		cout << "Success" << endl;
+		result += "Success\n";
 	} else {
-		cout << "Failure" << endl;
+		result += "Failure\n";
 	}
 }
 
@@ -554,10 +568,11 @@ void MoviesSystem::removeProfessionalFromMovie(int professionalId,
  *******************************************************************************/
 
 void MoviesSystem::printAllMovies() {
+	string result = "";
 	if (this->movies.size() > 0) {
 		for (vector<Movie*>::iterator it = this->movies.begin();
 				it != this->movies.end(); ++it) {
-			(*it)->printMovie();
+			result = (*it)->toString();
 		}
 	}
 }
@@ -571,10 +586,11 @@ void MoviesSystem::printAllMovies() {
  *******************************************************************************/
 
 void MoviesSystem::printAllProfessionals() {
+	string result = "";
 	if (this->professionals.size() > 0) {
 		for (vector<Professional*>::iterator it = this->professionals.begin();
 				it != this->professionals.end(); ++it) {
-			(*it)->printProfessional();
+			result += (*it)->toString();
 		}
 	}
 }

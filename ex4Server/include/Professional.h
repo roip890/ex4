@@ -126,7 +126,7 @@ public:
 	 *				is pure virtual function and each Professional inheriting      *
 	 *				object implement it in other way.						       *
 	 *******************************************************************************/
-	virtual void printProfessional() = 0;
+	virtual string toString() = 0;
 
 };
 

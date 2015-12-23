@@ -37,14 +37,14 @@ public:
 	virtual ~Actor();
 
 	/*******************************************************************************
-	* function name : printProfessional										       *
-	* input : nothing.														       *
-	* output : nothing.														       *
-	* explanation : the function printing the Actor details as Actor			   *
-	*		        need to print it.										       *
-	*******************************************************************************/
+	 * function name : toString												       *
+	 * input : nothing.														       *
+	 * output : screenWriter as string.										       *
+	 * explanation : the function return the Actor details as Actor				   *
+	 *		        need to print it.										       *
+	 *******************************************************************************/
 
-	void printProfessional();
+	string toString();
 };
 
 #endif /* ACTOR_H_ */

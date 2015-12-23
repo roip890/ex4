@@ -159,4 +159,4 @@ Movie* Professional::findMovie (string movieToAddId) {
 *				object implement it in other way.						       *
 *******************************************************************************/
 
-void Professional::printProfessional() { }
+string Professional::toString() { }
