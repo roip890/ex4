@@ -35,5 +35,7 @@ State Server::close(int socket){
 	close(socket);
 	return SUCCESS;
 }
-
+string Server::getDataReceived(){
+	return string(this->dataReceived);
+}
 

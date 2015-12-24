@@ -46,6 +46,7 @@ public:
 	State dataReceiver();
 	State bindServer();
 	State createSocket();
+	string getDataReceived();
 };
 
 

@@ -22,6 +22,7 @@ public:
 		State connect();
 		State initializeServer();
 		State connEstablish();
+		string getDataReceived();
 
 };
 

@@ -42,4 +42,9 @@ GTEST_API_ int main(int argc, char* argv[]) {
 
 	MoviesSystem* ms = new MoviesSystem(server);
 	(*ms).start();
+<<<<<<< HEAD
+=======
+	return 0;
+
+>>>>>>> branch 'master' of https://github.com/roip890/ex4
 }

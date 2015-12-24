@@ -27,7 +27,11 @@ private:
 	vector<Movie*> movies;
 	vector<Professional*> professionals;
 	vector<Type*> types;
+<<<<<<< HEAD
 	Server serverConnection;
+=======
+	Server* server;
+>>>>>>> branch 'master' of https://github.com/roip890/ex4
 
 	/*******************************************************************************
 	 * function name : getCommand											       *
@@ -76,7 +80,7 @@ public:
 	 * explanation : constructor of moviesSystem object. creating vector of	       *
 	 *				movies and vector of professionals.						       *
 	 *******************************************************************************/
-	MoviesSystem();
+	MoviesSystem(Server* server);
 
 	/*******************************************************************************
 	 * function name : ~MoviesSystem										       *
