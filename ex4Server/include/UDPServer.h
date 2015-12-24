@@ -10,13 +10,13 @@ using namespace std;
 class UDPServer:public Server{
 public:
 
-		UDPServer(ConType type);
-		State connect();
-		State createSocket();
+		UDPServer(int port);
 		State bindSocket();
-		State sendData(char* sendData);
-		State receiveData();
-
+		State sendData(char* data);
+		State dataReceiver();
+		State bindServer();
+		State createSocket();
+		State connect();
 };
 
 #endif /* UDPSERVER_H_ */

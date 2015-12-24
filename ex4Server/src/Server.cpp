@@ -3,17 +3,18 @@
 using namespace std;
 
 
-Server::Server(ConType type){
-	this->type = type;
+Server::Server(){
 	this->port =0;
-	this->ip = 0;
+	this->dataReceived =NULL;
+	this->socket = NULL;
+	this->ip = NULL;
 }
 
-Server::Server(ConType type, int ip, int port){
-	this->type = type;
-	this->ip = ip;
+Server::Server( int port){
 	this->port = port;
-
+	this->dataReceived =NULL;
+	this->socket = NULL;
+	this->ip = NULL;
 
 }
 
