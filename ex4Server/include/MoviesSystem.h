@@ -27,6 +27,7 @@ private:
 	vector<Movie*> movies;
 	vector<Professional*> professionals;
 	vector<Type*> types;
+	Server serverConnection;
 
 	/*******************************************************************************
 	 * function name : getCommand											       *
@@ -83,7 +84,7 @@ public:
 	 * output : nothing.													       *
 	 * explanation : destructor of a MoviesSystem.								   *
 	 *******************************************************************************/
-	virtual ~MoviesSystem();
+	virtual ~MoviesSystem(Server& serverConnection);
 
 	/*******************************************************************************
 	 * function name : start												       *

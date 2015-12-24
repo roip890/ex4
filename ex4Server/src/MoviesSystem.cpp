@@ -13,7 +13,9 @@
  * output : nothing.													       *
  * explanation : destructor of a MoviesSystem.								   *
  *******************************************************************************/
-MoviesSystem::~MoviesSystem() {
+MoviesSystem::~MoviesSystem(Server& serverConnection) {
+	this->serverConnection = serverConnection;
+	serverConnection.connect();
 	for (vector<Movie*>::iterator it = this->movies.begin();
 			it != this->movies.end(); ++it) {
 		delete (*it);
@@ -63,13 +65,17 @@ void MoviesSystem::start() {
  * explanation : getting and operating the next command					       *
  *******************************************************************************/
 int MoviesSystem::getCommand() {
+	this->serverConnection.
+	string line =
 	int key;
+
 	cin >> key;
 	switch (key) {
 	case 1: {
 		string id, name, summary;
 		int length, year;
 		float rank;
+
 		cin >> id >> name >> length >> year >> rank >> ws;
 		getline(cin, summary);
 		this->setNewMovie(id, name, length, year, rank, summary);

@@ -16,5 +16,4 @@ GTEST_API_ int main(int argc, char* argv[]) {
 	return RUN_ALL_TESTS();
 	MoviesSystem* ms = new MoviesSystem();
 	(*ms).start();
-	printf("hhhhhhhhh");
 }
