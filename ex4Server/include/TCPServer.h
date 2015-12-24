@@ -17,12 +17,16 @@ private:
 	struct sockaddr_in client_sin;
 	int client_sock;
 public:
-
+		~TCPServer();
 		TCPServer( int port);
-		State connect();
-		State initializeServer();
-		State connEstablish();
+		void connect();
+		void connEstablish();
 		string getDataReceived();
+		void sendData(string data);
+		void dataReceiver();
+		void bindSocket();
+		void setSocket(char* ip, int port);
+		void createSocket();
 
 };
 

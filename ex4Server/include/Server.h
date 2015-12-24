@@ -24,29 +24,30 @@ using namespace std;
 * class name : Server
 *******************************************************************************/
 class Server{
-private:
+protected:
 	int port;
 	struct sockaddr_in sin;
-	int socket;
+	int sock;
 	char* dataReceived;
 	char* ip;
 public:
 	Server();
 	Server(int port);
-
-	State connect();
-	State close(int socket);
+	virtual ~Server();
+	virtual void connect()=0;
+	void close(int socket);
 	int getPort();
-	int getIP();
-	void setIP(int ip);
+	char*  getIP();
+	void setIP(char* ip);
 	void setPort(int port);
-	struct sockaddr_in getSocket();
+	int getSocket();
 	void setSocket(char* ip, int port);
-	State sendData(char* data);
-	State dataReceiver();
-	State bindServer();
-	State createSocket();
+	virtual void sendData(string str)=0;
+	virtual void dataReceiver()= 0;
+	virtual void bindSocket()=0;
+	virtual void createSocket()=0;
 	string getDataReceived();
+	void setSocket(int sock);
 };
 
 

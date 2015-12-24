@@ -90,7 +90,7 @@ int MoviesSystem::getCommand() {
 		string specificDesc, gender, name;
 		int id, professionalType, age;
 		id = atoi(dat.at(1).c_str());
-		professionalType = dat.at(2);
+		professionalType = atoi(dat.at(2).c_str());
 		age = atoi(dat.at(3).c_str());
 		specificDesc = dat.at(4);
 		gender = dat.at(5);
@@ -209,8 +209,7 @@ void MoviesSystem::setNewMovie(string id, string name, int length, int year,
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
-	this->server->sendData(resultToSend);
+	this->server->sendData(result);
 }
 
 /*******************************************************************************
@@ -260,7 +259,7 @@ void MoviesSystem::setNewProfessional(int professionalType, int id, int age,
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -284,7 +283,7 @@ void MoviesSystem::addProfessionalToMovie(int professionalToAddId,
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -309,7 +308,7 @@ void MoviesSystem::addTypeToMovie(string movieId, string typeToAddStr) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -329,7 +328,7 @@ void MoviesSystem::setSortingTypeMovie(string movieId, int sortingTypeToAdd) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -352,7 +351,7 @@ void MoviesSystem::printAllProfessionalsOfMovie(string movieId) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -372,7 +371,7 @@ void MoviesSystem::printAllMovieDetails(string movieId) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -426,7 +425,7 @@ void MoviesSystem::mergeMovies(vector<string> moviesId) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -450,7 +449,7 @@ void MoviesSystem::printAllMoviesOfProfessional(int professionalId) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -474,7 +473,7 @@ void MoviesSystem::printAllMoviesOfType(string typeStr) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -505,7 +504,7 @@ void MoviesSystem::deleteType(string typeStr) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -541,7 +540,7 @@ void MoviesSystem::deleteMovie(string movieId) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -578,7 +577,7 @@ void MoviesSystem::deleteProfessional(int professionalId) {
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -604,7 +603,7 @@ void MoviesSystem::removeProfessionalFromMovie(int professionalId,
 	} else {
 		result += "Failure\n";
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -623,7 +622,7 @@ void MoviesSystem::printAllMovies() {
 			result = (*it)->toString();
 		}
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 
@@ -643,7 +642,7 @@ void MoviesSystem::printAllProfessionals() {
 			result += (*it)->toString();
 		}
 	}
-	char* resultToSend = result.c_str();
+	string resultToSend = result.c_str();
 	this->server->sendData(resultToSend);
 }
 

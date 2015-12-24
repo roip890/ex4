@@ -9,15 +9,14 @@ using namespace std;
 *******************************************************************************/
 class UDPServer:public Server{
 public:
-
+		~UDPServer();
 		UDPServer(int port);
-		State bindSocket();
-		State sendData(char* data);
-		State dataReceiver();
-		State bindServer();
-		State createSocket();
-		State connect();
+		void bindSocket();
+		void sendData(string data);
+		void createSocket();
+		void connect();
 		string getDataReceived();
+		void dataReceiver();
 };
 
 #endif /* UDPSERVER_H_ */

@@ -6,11 +6,12 @@
 #include <iterator>
 #include <sstream>
 #include "MoviesSystem.h"
-#include "gtest.h"
 #include "Server.h"
+#include "UDPServer.h"
+#include "TCPServer.h"
 
 using namespace std;
-GTEST_API_ int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
 	Server* server;
 
 	if(argc!= 2){
@@ -26,12 +27,12 @@ GTEST_API_ int main(int argc, char* argv[]) {
 	}
 
 
-	switch(argv[0]){
+	switch(type){
 	case 0:
-		server = new UDPServer(argv[0]);
+		server = new UDPServer(port);
 		break;
 	case 1:
-		server = new TCPServer(argv[1]);
+		server = new TCPServer(port);
 		break;
 	default:
 		cout<<"wrong connection type - exit"<<endl;
@@ -42,9 +43,5 @@ GTEST_API_ int main(int argc, char* argv[]) {
 
 	MoviesSystem* ms = new MoviesSystem(server);
 	(*ms).start();
-<<<<<<< HEAD
-=======
 	return 0;
-
->>>>>>> branch 'master' of https://github.com/roip890/ex4
 }

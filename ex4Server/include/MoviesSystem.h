@@ -16,6 +16,7 @@
 #include "vector"
 #include <iostream>
 #include <algorithm>
+#include <stdlib.h>
 #include "Server.h"
 using namespace std;
 
