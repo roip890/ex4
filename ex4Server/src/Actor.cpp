@@ -43,5 +43,7 @@ Actor::~Actor() {
  *******************************************************************************/
 
 string Actor::toString() {
-	return this->name + " " + this->age + "\n";
+	stringstream ageStr;
+	ageStr << this->age;
+	return this->name + " " + ageStr.str() + "\n";
 }

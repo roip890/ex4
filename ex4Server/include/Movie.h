@@ -11,6 +11,7 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
+#include <sstream>
 #include "Type.h"
 #include "Professional.h"
 #include "SortStaffById.h"

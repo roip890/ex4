@@ -1,6 +1,6 @@
-src/Actor.d: ../src/Actor.cpp /home/roi/workspace/ex4/include/Actor.h \
- /home/roi/workspace/ex4/include/Professional.h
+src/Actor.d: ../src/Actor.cpp /home/roi/ex4/ex4Server/include/Actor.h \
+ /home/roi/ex4/ex4Server/include/Professional.h
 
-/home/roi/workspace/ex4/include/Actor.h:
+/home/roi/ex4/ex4Server/include/Actor.h:
 
-/home/roi/workspace/ex4/include/Professional.h:
+/home/roi/ex4/ex4Server/include/Professional.h:

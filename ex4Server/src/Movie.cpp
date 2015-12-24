@@ -188,8 +188,14 @@ void Movie::removeType(string typeToRemove) {
  *******************************************************************************/
 string Movie::toString(){
 	string movie;
-	movie = this->id + " " + this->name + " " + this->length + " "
-			+ this->year + " " + this->rank;
+	stringstream lengthStr;
+	stringstream rankStr;
+	stringstream yearStr;
+	lengthStr << this->length;
+	rankStr << this->rank;
+	yearStr << this->year;
+	movie = this->id + " " + this->name + " " + lengthStr.str() + " "
+			+ yearStr.str() + " " + rankStr.str();
 	int typesSize = this->types.size();
 	if (typesSize > 0) {
 		movie += " ";

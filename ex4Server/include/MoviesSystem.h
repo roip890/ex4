@@ -16,6 +16,7 @@
 #include "vector"
 #include <iostream>
 #include <algorithm>
+#include "Server.h"
 using namespace std;
 
 /*******************************************************************************
@@ -84,7 +85,7 @@ public:
 	 * output : nothing.													       *
 	 * explanation : destructor of a MoviesSystem.								   *
 	 *******************************************************************************/
-	virtual ~MoviesSystem(Server& serverConnection);
+	virtual ~MoviesSystem();
 
 	/*******************************************************************************
 	 * function name : start												       *
