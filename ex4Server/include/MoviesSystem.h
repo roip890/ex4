@@ -27,11 +27,7 @@ private:
 	vector<Movie*> movies;
 	vector<Professional*> professionals;
 	vector<Type*> types;
-<<<<<<< HEAD
-	Server serverConnection;
-=======
 	Server* server;
->>>>>>> branch 'master' of https://github.com/roip890/ex4
 
 	/*******************************************************************************
 	 * function name : getCommand											       *

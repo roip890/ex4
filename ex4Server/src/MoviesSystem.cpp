@@ -6,7 +6,7 @@
  */
 
 #include "MoviesSystem.h"
-
+#include "Server.h""
 /*******************************************************************************
  * function name : ~MoviesSystem										       *
  * input : nothing														       *
@@ -14,8 +14,6 @@
  * explanation : destructor of a MoviesSystem.								   *
  *******************************************************************************/
 MoviesSystem::~MoviesSystem(Server& serverConnection) {
-	this->serverConnection = serverConnection;
-	serverConnection.connect();
 	for (vector<Movie*>::iterator it = this->movies.begin();
 			it != this->movies.end(); ++it) {
 		delete (*it);
@@ -66,30 +64,18 @@ void MoviesSystem::start() {
  * explanation : getting and operating the next command					       *
  *******************************************************************************/
 int MoviesSystem::getCommand() {
-<<<<<<< HEAD
-	this->serverConnection.
-	string line =
-	int key;
 
-	cin >> key;
-=======
 	this->server->dataReceiver();
 	string data = this->server->getDataReceived();
 	vector<string> dat = this->split(data," ");
 
 	int key = atoi(dat.at(0).c_str());
 
->>>>>>> branch 'master' of https://github.com/roip890/ex4
 	switch (key) {
 	case 1: {
 		string id, name, summary = "";
 		int length, year;
 		float rank;
-<<<<<<< HEAD
-
-		cin >> id >> name >> length >> year >> rank >> ws;
-		getline(cin, summary);
-=======
 		id = dat.at(1);
 		name = dat.at(2);
 		length = atoi(dat.at(3).c_str());
@@ -98,7 +84,6 @@ int MoviesSystem::getCommand() {
 		for(int i = 6; i < dat.size(); ++i) {
 			summary += dat.at(i);
 		}
->>>>>>> branch 'master' of https://github.com/roip890/ex4
 		this->setNewMovie(id, name, length, year, rank, summary);
 	}
 		break;
