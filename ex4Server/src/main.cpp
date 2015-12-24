@@ -42,5 +42,6 @@ GTEST_API_ int main(int argc, char* argv[]) {
 
 	MoviesSystem* ms = new MoviesSystem(server);
 	(*ms).start();
+	return 0;
 
 }

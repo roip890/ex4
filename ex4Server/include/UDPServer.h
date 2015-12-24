@@ -17,6 +17,7 @@ public:
 		State bindServer();
 		State createSocket();
 		State connect();
+		string getDataReceived();
 };
 
 #endif /* UDPSERVER_H_ */

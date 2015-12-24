@@ -27,6 +27,7 @@ private:
 	vector<Movie*> movies;
 	vector<Professional*> professionals;
 	vector<Type*> types;
+	Server* server;
 
 	/*******************************************************************************
 	 * function name : getCommand											       *
@@ -75,7 +76,7 @@ public:
 	 * explanation : constructor of moviesSystem object. creating vector of	       *
 	 *				movies and vector of professionals.						       *
 	 *******************************************************************************/
-	MoviesSystem();
+	MoviesSystem(Server* server);
 
 	/*******************************************************************************
 	 * function name : ~MoviesSystem										       *
