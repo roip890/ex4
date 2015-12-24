@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <sstream>
 #include "Professional.h"
 using namespace std;
 

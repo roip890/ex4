@@ -6,14 +6,13 @@
  */
 
 #include "MoviesSystem.h"
-#include "Server.h""
 /*******************************************************************************
  * function name : ~MoviesSystem										       *
  * input : nothing														       *
  * output : nothing.													       *
  * explanation : destructor of a MoviesSystem.								   *
  *******************************************************************************/
-MoviesSystem::~MoviesSystem(Server& serverConnection) {
+MoviesSystem::~MoviesSystem() {
 	for (vector<Movie*>::iterator it = this->movies.begin();
 			it != this->movies.end(); ++it) {
 		delete (*it);
@@ -184,6 +183,7 @@ int MoviesSystem::getCommand() {
 	}
 		break;
 	default:
+		this->server->sendData("-1");
 		return 0;
 		break;
 	}
