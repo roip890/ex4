@@ -47,6 +47,7 @@ public:
 	State bindServer();
 	State createSocket();
 	string getDataReceived();
+	//try
 };
 
 
