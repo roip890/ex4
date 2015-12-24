@@ -7,7 +7,7 @@
 
 #include "ClientConnection.h"
 
-ClientConnection::ClientConnection(char* ipAddress, int portNum) {
+ClientConnection::ClientConnection(char* ipAddress, int portNum){
 	this->connectSocket(ipAddress, portNum);
 }
 
@@ -19,10 +19,7 @@ void ClientConnection::receiveFromSocket(){ }
 
 void ClientConnection::connectSocket(char* ipAddress, int portNum) { }
 
-int ClientConnection::getSocket() { }
 
-char*& ClientConnection::getBuffer() { }
 
-struct sockaddr_in& ClientConnection::getSocketAddress() { }
 
 void ClientConnection::closeSocket() { }

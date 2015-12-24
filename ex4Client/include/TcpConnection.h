@@ -7,7 +7,7 @@
 
 #ifndef SRC_TCPCONNECTION_H_
 #define SRC_TCPCONNECTION_H_
-
+#include "ClientConnection.h"
 class TcpConnection : public ClientConnection{
 private:
 	int sock;

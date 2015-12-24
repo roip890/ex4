@@ -7,6 +7,7 @@
 
 #ifndef SRC_UDPCONNECTION_H_
 #define SRC_UDPCONNECTION_H_
+#include "ClientConnection.h"
 
 class UdpConnection : public ClientConnection{
 private:

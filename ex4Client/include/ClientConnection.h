@@ -7,6 +7,13 @@
 
 #ifndef SRC_CLIENTCONNECTION_H_
 #define SRC_CLIENTCONNECTION_H_
+#include <iostream>
+#include <sys/socket.h>
+#include <stdio.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <string.h>
 
 class ClientConnection {
 private:
