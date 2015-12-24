@@ -18,13 +18,11 @@ private:
 	int client_sock;
 public:
 
-		TCPServer(ConType type, int ip, int port);
+		TCPServer( int port);
 		State connect();
 		State initializeServer();
-		State bindServer();
 		State connEstablish();
-		State sendData(char* data);
-		State dataReceiver();
+
 };
 
 

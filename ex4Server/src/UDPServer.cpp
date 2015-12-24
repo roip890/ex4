@@ -3,11 +3,9 @@
 #include "UDPServer.h"
 using namespace std;
 
-UDPServer::UDPServer(ConType type):
-		Server(type){
-		this->type = type;
-		this->ip = 0;
-		this->port = 5555;
+UDPServer::UDPServer(int port):
+		Server(){
+		this->port = port;
 
 }
 
@@ -61,7 +59,7 @@ State UDPServer::sendData(char* data){
 }
 
 
-State UDPServer::receiveData(){
+State UDPServer::dataReceiver(){
 	struct sockaddr_in from;
 	unsigned int from_len = sizeof(struct sockaddr_in);
 

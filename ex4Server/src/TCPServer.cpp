@@ -1,10 +1,8 @@
 #include "TCPServer.h"
 
 
-TCPServer::TCPServer(ConType type, int ip, int port):
-	Server(type, ip, port){
-	this->type = type;
-	this->ip = ip;
+TCPServer::TCPServer(int port):
+	Server(port){
 	this->port = port;
 	this->client_sock =0;
 	this->initializeServer();

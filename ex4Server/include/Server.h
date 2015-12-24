@@ -25,15 +25,14 @@ using namespace std;
 *******************************************************************************/
 class Server{
 private:
-	ConType type;
 	int port;
-	char* ip;
 	struct sockaddr_in sin;
 	int socket;
 	char* dataReceived;
+	char* ip;
 public:
-	Server(ConType type);
-	Server(ConType type, int port, int ip);
+	Server();
+	Server(int port);
 
 	State connect();
 	State close(int socket);
@@ -43,8 +42,10 @@ public:
 	void setPort(int port);
 	struct sockaddr_in getSocket();
 	void setSocket(char* ip, int port);
-
-
+	State sendData(char* data);
+	State dataReceiver();
+	State bindServer();
+	State createSocket();
 };
 
 
