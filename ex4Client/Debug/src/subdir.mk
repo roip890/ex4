@@ -7,19 +7,19 @@ CPP_SRCS += \
 ../src/ClientConnection.cpp \
 ../src/TcpConnection.cpp \
 ../src/UdpConnection.cpp \
-../src/main.cpp 
+../src/clientMain.cpp 
 
 OBJS += \
 ./src/ClientConnection.o \
 ./src/TcpConnection.o \
 ./src/UdpConnection.o \
-./src/main.o 
+./src/clientMain.o 
 
 CPP_DEPS += \
 ./src/ClientConnection.d \
 ./src/TcpConnection.d \
 ./src/UdpConnection.d \
-./src/main.d 
+./src/clientMain.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

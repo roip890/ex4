@@ -18,7 +18,7 @@ UdpConnection::~UdpConnection() {
 
 
 void UdpConnection::sendToSocket(char* data) {
-    int sent_bytes = sendto(this->getSocket(), data, strlen(data), 0, (struct sockaddr *)(&(this->getSocketAddress())), sizeof(this->getSocketAddress()));
+    int sent_bytes = sendto(this->getSocket(), data, strlen(data), 0, (struct sockaddr *)(&(this->sin)), sizeof(this->sin));
     if (sent_bytes < 0) {
         perror("error writing to socket");
     }
@@ -27,13 +27,13 @@ void UdpConnection::sendToSocket(char* data) {
 void UdpConnection::receiveFromSocket(){
     struct sockaddr_in from;
     unsigned int from_len = sizeof(struct sockaddr_in);
-    memset(&(this->getBuffer()), 0, sizeof(this->getBuffer()));
-    int bytes = recvfrom(this->getSocket(), this->getBuffer(), sizeof(this->getBuffer()), 0, (struct sockaddr *) &from, &from_len);
+    memset(&(this->buffer), 0, sizeof(this->buffer));
+    int bytes = recvfrom(this->getSocket(), this->buffer, sizeof(this->buffer), 0, (struct sockaddr *) &from, &from_len);
     if (bytes < 0) {
         perror("error reading from socket");
     }
 
-    cout << "The server sent: " << buffer << endl;
+    cout <<buffer;
 }
 
 void UdpConnection::connectSocket(char* ipAddress, int portNum) {
@@ -41,21 +41,21 @@ void UdpConnection::connectSocket(char* ipAddress, int portNum) {
     if (this->getSocket() < 0) {
         perror("error creating socket");
     }
-    memset(&this->getSocketAddress(), 0, sizeof(this->getSocketAddress()));
-    this->getSocketAddress().sin_family = AF_INET;
-    this->getSocketAddress().sin_addr.s_addr = inet_addr(ipAddress);
-    this->getSocketAddress().sin_port = htons(portNum);
+    memset(&this->sin, 0, sizeof(this->sin));
+    this->sin.sin_family = AF_INET;
+    this->sin.sin_addr.s_addr = inet_addr(ipAddress);
+    this->sin.sin_port = htons(portNum);
 }
 
 int UdpConnection::getSocket() {
 	return this->sock;
 }
 
-char*& UdpConnection::getBuffer() {
+char* UdpConnection::getBuffer() {
 	return this->buffer;
 }
 
-struct sockaddr_in& UdpConnection::getSocketAddress() {
+struct sockaddr_in UdpConnection::getSocketAddress() {
 	return this->sin;
 }
 

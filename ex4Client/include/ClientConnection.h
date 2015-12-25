@@ -16,17 +16,17 @@
 #include <string.h>
 
 class ClientConnection {
-private:
+protected:
 	int sock;
 	struct sockaddr_in sin;
-	char* buffer;
+	char buffer[4096];
 public:
 	ClientConnection(char* ipAddress, int portNum);
 	virtual ~ClientConnection();
 	virtual void connectSocket(char* ipAddress, int portNum) = 0;
 	virtual int getSocket() = 0;
-	virtual char*& getBuffer() = 0;
-	virtual struct sockaddr_in& getSocketAddress() = 0;
+	virtual char* getBuffer() = 0;
+	virtual struct sockaddr_in getSocketAddress() = 0;
 	virtual void closeSocket() = 0;
 	virtual void sendToSocket(char* data) = 0;
 	virtual void receiveFromSocket() = 0;

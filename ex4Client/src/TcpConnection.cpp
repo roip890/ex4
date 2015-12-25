@@ -35,7 +35,7 @@ void TcpConnection::receiveFromSocket(){
         perror("error reading from socket");
     }
     else {
-        cout << "The server sent: " << buffer << endl;
+        cout << buffer;
     }
 
 }
@@ -46,12 +46,12 @@ void TcpConnection::connectSocket(char* ipAddress, int portNum) {
         perror("error creating socket");
     }
 
-    memset(&this->getSocketAddress(), 0, sizeof(this->getSocketAddress()));
-    this->getSocketAddress().sin_family = AF_INET;
-    this->getSocketAddress().sin_addr.s_addr = inet_addr(ipAddress);
-    this->getSocketAddress().sin_port = htons(portNum);
+    memset(&this->sin, 0, sizeof(this->getSocketAddress()));
+    this->sin.sin_family = AF_INET;
+    this->sin.sin_addr.s_addr = inet_addr(ipAddress);
+    this->sin.sin_port = htons(portNum);
 
-    if (connect(this->getSocket(), (struct sockaddr *)(&(this->getSocketAddress())), sizeof(this->getSocketAddress())) < 0) {
+    if (connect(this->getSocket(), (struct sockaddr *)&this->sin, sizeof(this->sin)) < 0) {
         perror("error connecting to server");
     }
 }
@@ -60,11 +60,11 @@ int TcpConnection::getSocket() {
 	return this->sock;
 }
 
-char*& TcpConnection::getBuffer() {
+char* TcpConnection::getBuffer() {
 	return this->buffer;
 }
 
-struct sockaddr_in& TcpConnection::getSocketAddress() {
+struct sockaddr_in TcpConnection::getSocketAddress() {
 	return this->sin;
 }
 

@@ -8,7 +8,7 @@
 #include "ClientConnection.h"
 
 ClientConnection::ClientConnection(char* ipAddress, int portNum){
-	this->connectSocket(ipAddress, portNum);
+	//this->connectSocket(ipAddress, portNum);
 }
 
 ClientConnection::~ClientConnection() { }

@@ -13,20 +13,19 @@ using namespace std;
 
 enum ConType{TCP, UDP};
 int main(int argc, char* argv[]) {
-	if(argc!= 3){
+	if(argc-1!= 3){
 		cout<<"missing arguments - exit"<<endl;
 		return 0;
 	}
-	int port = atoi(argv[2]);
+	int port = atoi(argv[3]);
 	if(port < 1024 || port > 65563){
 		cout<< "invalid port number"<<endl;
 		return 0;
 	}
 
-	char* ipAddress = argv[1];
+	char* ipAddress = argv[2];
 	ClientConnection* con;
-	int type;
-	cin >> type;
+	int type = atoi(argv[1]);
 	if (type == TCP) {
 		con = new TcpConnection(ipAddress, port);
 	} else {
@@ -41,7 +40,6 @@ int main(int argc, char* argv[]) {
 		if(con->getBuffer() == "-1"){
 			break;
 		}
-		cout << con->getBuffer();
 	}while (true);
 
 
