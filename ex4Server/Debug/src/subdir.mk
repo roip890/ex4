@@ -20,7 +20,7 @@ CPP_SRCS += \
 ../src/TCPServer.cpp \
 ../src/Type.cpp \
 ../src/UDPServer.cpp \
-../src/main.cpp 
+../src/serverMain.cpp 
 
 OBJS += \
 ./src/Actor.o \
@@ -39,7 +39,7 @@ OBJS += \
 ./src/TCPServer.o \
 ./src/Type.o \
 ./src/UDPServer.o \
-./src/main.o 
+./src/serverMain.o 
 
 CPP_DEPS += \
 ./src/Actor.d \
@@ -58,7 +58,7 @@ CPP_DEPS += \
 ./src/TCPServer.d \
 ./src/Type.d \
 ./src/UDPServer.d \
-./src/main.d 
+./src/serverMain.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

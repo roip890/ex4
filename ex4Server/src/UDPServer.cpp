@@ -39,14 +39,13 @@ void UDPServer::bindSocket(){
 
 
 void UDPServer::sendData(string data){
-	memset(&this->sin,0,sizeof(this->sin));
-	this->sin.sin_family = AF_INET;
-	this->sin.sin_addr.s_addr = inet_addr(this->ip);
-	this->sin.sin_port = htons(this->port);
+
+	char buffer[4096];
+	memset(&buffer, 0, sizeof(buffer));
 
 	int data_len = sizeof(data);
 
-	int sent_bytes = sendto(this->sock, data.c_str(),data_len,0,(struct sockaddr*)&this->sin,sizeof(this->sin));
+	int sent_bytes = sendto(this->sock, data.c_str(), data_len, 0, (struct sockaddr *) &this->sin, sizeof(this->sin));
 	if(sent_bytes<0){
 		perror("error writing to socket");
 	}
@@ -59,11 +58,11 @@ void UDPServer::dataReceiver(){
 	unsigned int from_len = sizeof(struct sockaddr_in);
 
 	char buffer[4096];
-
-	int bytes = recvfrom(this->sock, buffer,sizeof(buffer),0,(struct sockaddr*)&from,&from_len);
+	memset(&(buffer), 0, sizeof(buffer));
+	int bytes = recvfrom(this->sock, buffer,sizeof(buffer),0,(struct sockaddr*)&this->sin,&from_len);
 
 	if(bytes<0){
 		perror("error reading from socket");
 	}
-
+	this->dataReceived = buffer;
 }

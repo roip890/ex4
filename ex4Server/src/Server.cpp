@@ -13,7 +13,7 @@ Server::~Server(){
 
 }
 
-Server::Server( int port){
+Server::Server(int port){
 	this->port = port;
 	this->dataReceived =NULL;
 	this->ip = NULL;

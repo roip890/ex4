@@ -18,12 +18,10 @@ TCPServer::~TCPServer(){
 void TCPServer::connect(){
 
 
-	int back_log = 5; //need to change
+	int back_log = 1; //need to change
 	if (listen(this->getSocket(), back_log) < 0) {
 		perror("error listening to a socket");
 	}
-
-	return this->close(this->getSocket());
 }
 
 
@@ -59,7 +57,7 @@ void TCPServer::connEstablish(){
 
 	unsigned int addr_len = sizeof(this->client_sin);
 
-	this->client_sock = accept(this->getSocket(), (struct sockaddr *)&this->client_sin,  &addr_len);
+	this->client_sock = accept(this->getSocket(), (struct sockaddr *)&(this->client_sin),  &addr_len);
 
 	if (client_sock < 0) {
 		perror("error accepting client");
@@ -72,7 +70,7 @@ void TCPServer::connEstablish(){
 
 void TCPServer::sendData(string data){
 
-	int data_len = sizeof(data);
+	int data_len = data.length();
 	int sent_bytes = send(this->client_sock, data.c_str(), data_len, 0);
 	if (sent_bytes < 0) {
 		perror("error sending to client");
@@ -92,9 +90,7 @@ void TCPServer::dataReceiver(){
 	else if (read_bytes < 0) {
 		perror("error reading from client");
 	}
-	else {
-		cout << buffer;
-	}
+	this->dataReceived=buffer;
 
 
 }
