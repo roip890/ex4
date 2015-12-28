@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 		return 0;
 	}
 
-
+	// creating a connection.
 	switch(type){
 	case 0:
 		server = new TCPServer(port);
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]) {
 	}
 
 
-
+	//starting the movies system.
 	MoviesSystem* ms = new MoviesSystem(server);
 	(*ms).start();
 	return 0;
