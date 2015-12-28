@@ -22,7 +22,7 @@ int main(int argc, char* argv[]) {
 		cout<< "invalid port number"<<endl;
 		return 0;
 	}
-
+	//create the connection.
 	char* ipAddress = argv[2];
 	ClientConnection* con;
 	int type = atoi(argv[1]);
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 	} else {
 		con = new UdpConnection(ipAddress, port);
 	}
-
+	//enter the next command and get the answer.
 	string command;
 	do{
 		getline(cin, command);
