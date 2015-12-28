@@ -145,7 +145,7 @@ int MoviesSystem::getCommand() {
 	}
 		break;
 	case 8: {
-		string line = dat.at(0);
+		string line = dat.at(1);
 		vector<string> moviesId = this->split(line, ",");
 		this->mergeMovies(moviesId);
 	}
