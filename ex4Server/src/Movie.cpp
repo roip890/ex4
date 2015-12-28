@@ -212,6 +212,7 @@ string Movie::toString(){
 			it != this->staff.end(); ++it) {
 		movie += (*it)->toString();
 	}
+	return movie;
 }
 
 /*******************************************************************************

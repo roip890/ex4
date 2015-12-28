@@ -80,8 +80,12 @@ int MoviesSystem::getCommand() {
 		length = atoi(dat.at(3).c_str());
 		year = atoi(dat.at(4).c_str());
 		rank = atof(dat.at(5).c_str());
-		for(int i = 6; i < dat.size(); ++i) {
+		int size = dat.size();
+		for(int i = 6; i < size; ++i) {
 			summary += dat.at(i);
+			if(i<size-1){
+				summary += " ";
+			}
 		}
 		this->setNewMovie(id, name, length, year, rank, summary);
 	}
@@ -89,13 +93,17 @@ int MoviesSystem::getCommand() {
 	case 2: {
 		string specificDesc, gender, name;
 		int id, professionalType, age;
-		id = atoi(dat.at(1).c_str());
-		professionalType = atoi(dat.at(2).c_str());
+		id = atoi(dat.at(2).c_str());
+		professionalType = atoi(dat.at(1).c_str());
 		age = atoi(dat.at(3).c_str());
 		specificDesc = dat.at(4);
 		gender = dat.at(5);
-		for(int i = 6; i < dat.size(); ++i) {
+		int nameSize = dat.size();
+		for(int i = 6; i < nameSize; ++i) {
 			name += dat.at(i);
+			if(i != nameSize-1){
+				name += " ";
+			}
 		}
 		this->setNewProfessional(professionalType, id, age, specificDesc,
 				gender, name);
@@ -619,7 +627,7 @@ void MoviesSystem::printAllMovies() {
 	if (this->movies.size() > 0) {
 		for (vector<Movie*>::iterator it = this->movies.begin();
 				it != this->movies.end(); ++it) {
-			result = (*it)->toString();
+			result += (*it)->toString();
 		}
 	}
 	string resultToSend = result.c_str();
@@ -636,7 +644,8 @@ void MoviesSystem::printAllMovies() {
 
 void MoviesSystem::printAllProfessionals() {
 	string result = "";
-	if (this->professionals.size() > 0) {
+	unsigned int size = this->professionals.size();
+	if (size > 0) {
 		for (vector<Professional*>::iterator it = this->professionals.begin();
 				it != this->professionals.end(); ++it) {
 			result += (*it)->toString();

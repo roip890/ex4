@@ -43,7 +43,7 @@ void UDPServer::sendData(string data){
 	char buffer[4096];
 	memset(&buffer, 0, sizeof(buffer));
 
-	int data_len = sizeof(data);
+	int data_len = data.size();
 
 	int sent_bytes = sendto(this->sock, data.c_str(), data_len, 0, (struct sockaddr *) &this->sin, sizeof(this->sin));
 	if(sent_bytes<0){
