@@ -26,7 +26,8 @@ void TcpConnection::sendToSocket(char* data_addr) {
 }
 
 void TcpConnection::receiveFromSocket(){
-    int expected_data_len = sizeof(this->getBuffer());
+    int expected_data_len = 4096;
+	memset(&(this->buffer), 0, sizeof(this->buffer));
     int read_bytes = recv(this->getSocket(), this->getBuffer(), expected_data_len, 0);
     if (read_bytes == 0) {
         perror("connection is closed");

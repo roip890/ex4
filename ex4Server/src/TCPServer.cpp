@@ -71,6 +71,10 @@ void TCPServer::connEstablish(){
 void TCPServer::sendData(string data){
 
 	int data_len = data.length();
+	if(data_len == 0){
+		data = "\0";
+		data_len = 1;
+	}
 	int sent_bytes = send(this->client_sock, data.c_str(), data_len, 0);
 	if (sent_bytes < 0) {
 		perror("error sending to client");
@@ -83,6 +87,7 @@ void TCPServer::dataReceiver(){
 
 	char buffer[4096];
 	int expected_data_len = sizeof(buffer);
+	memset(&(buffer), 0, sizeof(buffer));
 	int read_bytes = recv(this->client_sock, buffer, expected_data_len, 0);
 	if (read_bytes == 0) {
 		cout<<"connection is close\n";
