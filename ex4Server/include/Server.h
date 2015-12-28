@@ -31,22 +31,131 @@ protected:
 	char* dataReceived;
 	char* ip;
 public:
+
+	/*******************************************************************************
+	* function name : Server												       *
+	* input : nothing.														       *
+	* output : nothing.														       *
+	* explanation : constructor of a Server.									   *
+	*******************************************************************************/
 	Server();
+
+	/*******************************************************************************
+	* function name : Server												       *
+	* input : port as int.													       *
+	* output : nothing.														       *
+	* explanation : constructor of a Server.									   *
+	*******************************************************************************/
 	Server(int port);
+
+	/*******************************************************************************
+	* function name : ~Server												       *
+	* input : nothing.														       *
+	* output : nothing.														       *
+	* explanation : destructor of a Server.										   *
+	*******************************************************************************/
 	virtual ~Server();
+
+
 	virtual void connect()=0;
+
+
 	void close(int socket);
+
+	/*******************************************************************************
+	* function name : getPort												       *
+	* input : nothing.														       *
+	* output : port as int.													       *
+	* explanation : return the port as int.										   *
+	*******************************************************************************/
 	int getPort();
+
+	/*******************************************************************************
+	* function name : getIP													       *
+	* input : nothing.														       *
+	* output : ip as string.												       *
+	* explanation : return the ip address as string.							   *
+	*******************************************************************************/
 	char*  getIP();
+
+	/*******************************************************************************
+	* function name : setIP													       *
+	* input : ip as string.													       *
+	* output : nothing.														       *
+	* explanation : set the ip member with string.								   *
+	*******************************************************************************/
 	void setIP(char* ip);
+
+	/*******************************************************************************
+	* function name : setPort												       *
+	* input : port as int.													       *
+	* output : nothing.														       *
+	* explanation : set the port member with int.								   *
+	*******************************************************************************/
 	void setPort(int port);
+
+	/*******************************************************************************
+	* function name : getSocket												       *
+	* input : nothing.														       *
+	* output : the socket.													       *
+	* explanation : return the socket.											   *
+	*******************************************************************************/
 	int getSocket();
+
+	/*******************************************************************************
+	* function name : setSocket												       *
+	* input : ip address as string and socket as int.						       *
+	* output : nothing.														       *
+	* explanation : setting the socket.											   *
+	*******************************************************************************/
 	void setSocket(char* ip, int port);
+
+	/*******************************************************************************
+	* function name : sendData												       *
+	* input : data as string.												       *
+	* output : nothing.														       *
+	* explanation : sending the data to the socket.								   *
+	*******************************************************************************/
 	virtual void sendData(string str)=0;
+
+	/*******************************************************************************
+	* function name : dataReceiver											       *
+	* input : nothing.														       *
+	* output : nothing.														       *
+	* explanation : receive the massage to the buffer.							   *
+	*******************************************************************************/
 	virtual void dataReceiver()= 0;
+
+	/*******************************************************************************
+	* function name : bindSocket											       *
+	* input : nothing.														       *
+	* output : nothing.														       *
+	* explanation : make bind to a client.										   *
+	*******************************************************************************/
 	virtual void bindSocket()=0;
+
+	/*******************************************************************************
+	* function name : createSocket											       *
+	* input : nothing.														       *
+	* output : nothing.														       *
+	* explanation : creating a socket in this connection.						   *
+	*******************************************************************************/
 	virtual void createSocket()=0;
+
+	/*******************************************************************************
+	* function name : getDataReceived										       *
+	* input : nothing.														       *
+	* output : the massage as string.										       *
+	* explanation : return the massage as string.								   *
+	*******************************************************************************/
 	string getDataReceived();
+
+	/*******************************************************************************
+	* function name : setSocket												       *
+	* input : socket as int.						       *
+	* output : nothing.														       *
+	* explanation : setting the socket.											   *
+	*******************************************************************************/
 	void setSocket(int sock);
 };
 

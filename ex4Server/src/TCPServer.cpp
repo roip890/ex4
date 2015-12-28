@@ -1,22 +1,37 @@
 #include "TCPServer.h"
 
-
-TCPServer::TCPServer(int port):
-	Server(port){
-	this->client_sock =0;
+/*******************************************************************************
+ * function name : TCPServer												       *
+ * input : nothing.														       *
+ * output : ip as string.												       *
+ * explanation : constructor of a TCPServer.									   *
+ *******************************************************************************/
+TCPServer::TCPServer(int port) :
+		Server(port) {
+	this->client_sock = 0;
 	this->createSocket();
 	this->bindSocket();
 	this->connect();
 	this->connEstablish();
 }
 
-TCPServer::~TCPServer(){
+/*******************************************************************************
+ * function name : ~TCPServer											       *
+ * input : nothing.														       *
+ * output : nothing.													       *
+ * explanation : destructor of a TCPServer.									   *
+ *******************************************************************************/
+TCPServer::~TCPServer() {
 
 }
 
-
-void TCPServer::connect(){
-
+/*******************************************************************************
+* function name : connect												       *
+* input : connect to a certain socket.									       *
+* output : nothing.														       *
+* explanation : sending the data to the socket.								   *
+*******************************************************************************/
+void TCPServer::connect() {
 
 	int back_log = 1; //need to change
 	if (listen(this->getSocket(), back_log) < 0) {
@@ -24,22 +39,38 @@ void TCPServer::connect(){
 	}
 }
 
+/*******************************************************************************
+* function name : createSocket											       *
+* input : nothing.														       *
+* output : nothing.														       *
+* explanation : creating a socket in this connection.						   *
+*******************************************************************************/
+void TCPServer::createSocket() {
+	this->sock = socket(AF_INET, SOCK_STREAM, 0);
 
-void TCPServer::createSocket(){
-
-	this->sock = socket(AF_INET,SOCK_STREAM,0);
-
-	if(this->getSocket() < 0){
-        perror("error creating socket");
+	if (this->getSocket() < 0) {
+		perror("error creating socket");
 	}
-
-
 }
-void TCPServer::setSocket(char* ip,int sock){
+
+/*******************************************************************************
+* function name : setSocket												       *
+* input : ip address as string and socket as int.						       *
+* output : nothing.														       *
+* explanation : setting the socket.											   *
+*******************************************************************************/
+void TCPServer::setSocket(char* ip, int sock) {
 	this->sock = sock;
 	this->ip = NULL;
 }
-void TCPServer::bindSocket(){
+
+/*******************************************************************************
+ * function name : bindSocket											       *
+ * input : nothing.														       *
+ * output : nothing.													       *
+ * explanation : make bind to a client.										   *
+ *******************************************************************************/
+void TCPServer::bindSocket() {
 
 	memset(&this->sin, 0, sizeof(this->sin));
 	this->sin.sin_family = AF_INET;
@@ -49,27 +80,31 @@ void TCPServer::bindSocket(){
 	if (bind(this->sock, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
 		perror("error binding socket");
 	}
-
-
 }
 
-void TCPServer::connEstablish(){
-
+/*******************************************************************************
+ * function name : connEstablish										       *
+ * input : nothing.														       *
+ * output : nothing.													       *
+ * explanation : creating a socket.											   *
+ *******************************************************************************/
+void TCPServer::connEstablish() {
 	unsigned int addr_len = sizeof(this->client_sin);
-
-	this->client_sock = accept(this->getSocket(), (struct sockaddr *)&(this->client_sin),  &addr_len);
-
+	this->client_sock = accept(this->getSocket(),
+			(struct sockaddr *) &(this->client_sin), &addr_len);
 	if (client_sock < 0) {
 		perror("error accepting client");
 	}
 
-
 }
 
-
-
-void TCPServer::sendData(string data){
-
+/*******************************************************************************
+ * function name : sendData												       *
+ * input : data as string.												       *
+ * output : nothing.													       *
+ * explanation : sending the data to the socket.							   *
+ *******************************************************************************/
+void TCPServer::sendData(string data) {
 	int data_len = data.length();
 	if(data_len == 0){
 		data = "\0";
@@ -82,20 +117,23 @@ void TCPServer::sendData(string data){
 
 }
 
-
-void TCPServer::dataReceiver(){
+/*******************************************************************************
+ * function name : dataReceiver											       *
+ * input : nothing.														       *
+ * output : nothing.													       *
+ * explanation : receive the massage to the buffer.							   *
+ *******************************************************************************/
+void TCPServer::dataReceiver() {
 
 	char buffer[4096];
 	int expected_data_len = sizeof(buffer);
 	memset(&(buffer), 0, sizeof(buffer));
 	int read_bytes = recv(this->client_sock, buffer, expected_data_len, 0);
 	if (read_bytes == 0) {
-		cout<<"connection is close\n";
-	}
-	else if (read_bytes < 0) {
+		cout << "connection is close\n";
+	} else if (read_bytes < 0) {
 		perror("error reading from client");
 	}
-	this->dataReceived=buffer;
-
+	this->dataReceived = buffer;
 
 }
