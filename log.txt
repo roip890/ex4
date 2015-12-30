@@ -1,0 +1,226 @@
+*   commit 4e79eff5c8113cfce4136fe0c37100ded2349801
+|\  Merge: c24e9b1 ee3756c
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Tue Dec 29 01:35:34 2015 +0200
+| | 
+| |     Merge remote-tracking branch 'origin/master'
+| |     
+| |     Conflicts:
+| |     	ex4Client/Debug/ex4Client
+| |     	ex4Client/Debug/src/TcpConnection.o
+| |   
+| * commit ee3756c7dbeba6c23ee53e60712db5fa2b3ca33e
+| | Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| | Date:   Tue Dec 29 01:06:17 2015 +0200
+| | 
+| |     documentation
+| |   
+| * commit 0cbb16e81dcf411066635a6a4fd7a9b591b6759f
+| | Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| | Date:   Tue Dec 29 00:57:34 2015 +0200
+| | 
+| |     ducomentation
+| |   
+* | commit c24e9b180a7793f7634805e7a20ffa2dd261b8bc
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Tue Dec 29 01:21:16 2015 +0200
+| | 
+| |     Final fix.
+| |   
+* | commit e68d473093ec83397d2b8e0affb778b85702095a
+|/  Author: tomericko <tomer2600@walla.com>
+|   Date:   Mon Dec 28 20:44:18 2015 +0200
+|   
+|       Fixed bugs in movies merge
+|  
+* commit 2731f27e833e94091f26911bd53aa0c1f01a7f45
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Mon Dec 28 20:11:34 2015 +0200
+| 
+|     Update after debuging
+|  
+* commit 9a619fffae857496dcbf59c43b214ec602a255c8
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Mon Dec 28 20:08:34 2015 +0200
+| 
+|     Update after debuging
+|  
+* commit 296ebdffed058c1d696daaf6e9c8424a5a2c087d
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Fri Dec 25 05:15:36 2015 +0200
+| 
+|     After debuging
+|  
+* commit ffca05bb09e09fb5f815c3c19ef6aa0cc083cd7b
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Fri Dec 25 05:14:45 2015 +0200
+| 
+|     After debuging
+|  
+* commit b03a092fe7116eb6ebdccb9536fb179786bf00d7
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Fri Dec 25 01:04:35 2015 +0200
+| 
+|     main class rename
+|  
+* commit 63dd2acdbba4b704e909485808db0a6f2c73b736
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Fri Dec 25 01:03:39 2015 +0200
+| 
+|     main class rename
+|  
+* commit 1cc734f0407b8c065efa31ff4b65f2bf384d7ae7
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Fri Dec 25 00:50:41 2015 +0200
+| 
+|     Update server connetion
+|    
+*   commit 754198f3b2677a7a5a2330eaafb9d32e017624ef
+|\  Merge: 4d46bdd d28d6ed
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Thu Dec 24 20:52:35 2015 +0200
+| | 
+| |     Merge branch 'master' of https://github.com/roip890/ex4.git
+| |     
+| |     Conflicts:
+| |     	ex4Client/Debug/src/subdir.mk
+| |   
+| * commit d28d6ed33c23762ffa02d672bb1d608ade5ae1cd
+| | Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| | Date:   Thu Dec 24 20:07:22 2015 +0200
+| | 
+| |     update
+| |   
+| * commit 33d64cd8b2d3e83c6d92943a63df817f084e09c3
+| | Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| | Date:   Thu Dec 24 20:06:56 2015 +0200
+| | 
+| |     update
+| |   
+* | commit 4d46bdd3b9ab730574d8ed789a193ff11080ebb5
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Thu Dec 24 20:45:46 2015 +0200
+| | 
+| |     Update main of client.
+| |   
+* | commit fc02e4d743fe42418e26056c1eab1091f694af06
+|/  Author: tomericko <tomer2600@walla.com>
+|   Date:   Thu Dec 24 20:43:55 2015 +0200
+|   
+|       Update main of client.
+|  
+* commit 2b61e60e854c95e18084292fa18dbe91db68e614
+| Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| Date:   Thu Dec 24 19:17:04 2015 +0200
+| 
+|     get files
+|    
+*   commit 2ca3c54aec5489abf1b1349756d3b759644437bf
+|\  Merge: 034adeb fa4e9f1
+| | Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| | Date:   Thu Dec 24 19:11:59 2015 +0200
+| | 
+| |     Merge branch 'master' of https://github.com/roip890/ex4
+| |   
+| * commit fa4e9f19536b44fc904d3fb32d8f7cb794144150
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Thu Dec 24 19:11:30 2015 +0200
+| | 
+| |     try
+| |     
+* |   commit 034adeb8674a9d74179e179d23616ca5e86244b4
+|\ \  Merge: bde9bed 0d0e487
+| |/  Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| |   Date:   Thu Dec 24 19:06:47 2015 +0200
+| |   
+| |       Merge branch 'master' of https://github.com/roip890/ex4
+| |       
+| |       Conflicts:
+| |       	ex4Server/include/MoviesSystem.h
+| |       	ex4Server/src/MoviesSystem.cpp
+| |       	ex4Server/src/main.cpp
+| |   
+| * commit 0d0e487e9fcd108973620e199be1f5273b11f327
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Thu Dec 24 18:54:41 2015 +0200
+| | 
+| |     Main system server update:
+| |     -change return method (string)
+| |     -return result to client
+| |     -system set-up
+| |     
+* |   commit bde9bed3995aa89140d968c0979cf87da9520199
+|\ \  Merge: 6050a4d fa32019
+| |/  Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| |   Date:   Thu Dec 24 19:05:23 2015 +0200
+| |   
+| |       Merge branch 'master' of https://github.com/roip890/ex4
+| |       
+| |       Conflicts:
+| |       	ex4Server/src/main.cpp
+| |   
+| * commit fa32019236a112b1a80e585887a6b16d853463bd
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Thu Dec 24 17:45:01 2015 +0200
+| | 
+| |     update main of server
+| |   
+| * commit e2774304367c67b06a2505defe4f65350840355a
+| | Author: tomericko <tomer2600@walla.com>
+| | Date:   Thu Dec 24 17:41:19 2015 +0200
+| | 
+| |     update server interface
+| |   
+* | commit 6050a4dfea8635a4c3bdd3e2dd3a5fde2f1f5451
+|/  Author: roi <roi@roi-ThinkPad-S1-Yoga>
+|   Date:   Thu Dec 24 17:42:50 2015 +0200
+|   
+|       update server
+|  
+* commit e785d869b3dd9f437e7ab2641dacaf990af35502
+| Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| Date:   Wed Dec 23 21:49:31 2015 +0200
+| 
+|     jhjkn
+|  
+* commit d2fd2d615d39fe730a875542f0a7d4bf3eaa33ac
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Wed Dec 23 21:48:46 2015 +0200
+| 
+|     fix producer source
+|  
+* commit 0fadd9bdec1311d21a97b0f069016982c551e377
+| Author: tomericko <tomer2600@walla.com>
+| Date:   Wed Dec 23 21:20:53 2015 +0200
+| 
+|     add server files
+|  
+* commit e368d8291ddc93700cc59cec2b8e7a7f1e297039
+| Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| Date:   Wed Dec 23 20:52:18 2015 +0200
+| 
+|     ex4 server, version 1.
+|  
+* commit d969fa3be72cc4afe89d2fd126bd6a274fdd6b38
+| Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| Date:   Tue Dec 22 21:11:04 2015 +0200
+| 
+|     version2, before testing.
+|  
+* commit 08ee78ca781e0dcef7c76bc63b4ce984aae1c293
+| Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| Date:   Tue Dec 22 20:38:24 2015 +0200
+| 
+|     version1. before testing.
+|  
+* commit 147d76780fbb2347e93f95cbfbcbf8914672b0b5
+| Author: roi <roi@roi-ThinkPad-S1-Yoga>
+| Date:   Tue Dec 22 20:37:18 2015 +0200
+| 
+|     version1, before testing.
+|  
+* commit 78fa0b17461ca8af994fe2d3eb1195d17efe4ee5
+  Author: roi <roi@roi-ThinkPad-S1-Yoga>
+  Date:   Tue Dec 22 17:02:18 2015 +0200
+  
+      Ex4 Project
